@@ -1,0 +1,6 @@
+.editorconfig
+.gitignore
+.npmrc
+.nvmrc
+node_modules/
+pnpm-lock.yaml
