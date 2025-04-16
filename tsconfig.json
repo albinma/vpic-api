@@ -3,12 +3,13 @@
     "target": "ES2022",
     "lib": ["ESNext"],
     "module": "ESNext",
+    "moduleResolution": "node10",
     "esModuleInterop": true,
     "forceConsistentCasingInFileNames": true,
     "skipLibCheck": true,
     "noEmit": true,
     "paths": {
-      "@/": ["./*"]
+      "@/*": ["./*"]
     }
   },
   "exclude": ["node_modules"]
