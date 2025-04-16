@@ -1,16 +1,16 @@
 import { config } from '@/src/env';
-import pinoLogger, { Options } from 'pino-http';
-import { randomUUID } from 'crypto';
+import pino, { Logger, LoggerOptions } from 'pino';
 
-const loggerConfig: Options = {
+const createLogger = (options: LoggerOptions): Logger => {
+  if (!options.level) {
+    options.level = 'info';
+  }
+
+  return pino(options);
+};
+
+const loggerConfig: LoggerOptions = {
   level: config.logging.level,
-  genReqId: function (req, res) {
-    const existingID = req.id ?? req.headers['x-request-id'];
-    if (existingID) return existingID;
-    const id = randomUUID();
-    res.setHeader('X-Request-Id', id);
-    return id;
-  },
 };
 
 if (config.environment === 'development') {
@@ -22,4 +22,4 @@ if (config.environment === 'development') {
   };
 }
 
-export const logger = pinoLogger(loggerConfig);
+export const logger = createLogger(loggerConfig);
