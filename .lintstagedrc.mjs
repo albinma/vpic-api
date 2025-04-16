@@ -1,9 +1,7 @@
 const Configuration = {
-  // Type check TypeScript files
-  '**/*.(ts)': () => 'pnpm tsc --noEmit',
-
   // Lint & Prettify TS and JS files
   '**/*.(ts)': (filenames) => [
+    'pnpm tsc --noEmit',
     `pnpm eslint ${filenames.join(' ')}`,
     `pnpm prettier --write ${filenames.join(' ')} --plugin-search-dir=.`,
   ],

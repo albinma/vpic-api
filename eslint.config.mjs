@@ -14,6 +14,16 @@ export default defineConfig([
     files: ['**/*.{js,mjs,cjs,ts}'],
     languageOptions: { globals: { ...globals.node, ...globals.vitest } },
   },
-  ts.configs.recommended,
-  ...prettier,
+  ts.configs.stylistic,
+  prettier,
+  {
+    rules: {
+      '@typescript-eslint/no-explicit-any': 'error',
+      '@typescript-eslint/no-unused-vars': ['warn', { argsIgnorePattern: '^_' }],
+      '@typescript-eslint/no-non-null-assertion': 'error',
+      '@typescript-eslint/explicit-function-return-type': 'error',
+      'no-console': 'warn',
+    },
+    ignores: ['node_modules', '.lintstagedrc.mjs'],
+  },
 ]);
