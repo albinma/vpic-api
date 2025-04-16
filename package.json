@@ -3,7 +3,18 @@
   "version": "1.0.0",
   "private": true,
   "packageManager": "pnpm@10.8.1",
+  "main": "src/index.ts",
+  "license": "MIT",
   "scripts": {
+    "start": "tsx src/index.ts",
     "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "dependencies": {
+    "express": "^5.1.0"
+  },
+  "devDependencies": {
+    "@types/express": "^5.0.1",
+    "tsx": "^4.19.3",
+    "typescript": "^5.8.3"
   }
 }
