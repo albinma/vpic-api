@@ -10,7 +10,8 @@
     "lint": "eslint .",
     "lint:fix": "eslint . --fix",
     "format": "prettier --check .",
-    "format:fix": "prettier --write ."
+    "format:fix": "prettier --write .",
+    "prepare": "husky"
   },
   "dependencies": {
     "express": "5.1.0"
@@ -21,6 +22,8 @@
     "eslint": "9.24.0",
     "eslint-config-prettier": "10.1.2",
     "globals": "16.0.0",
+    "husky": "9.1.7",
+    "lint-staged": "15.5.1",
     "prettier": "3.5.3",
     "tsx": "4.19.3",
     "typescript": "5.8.3",
