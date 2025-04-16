@@ -1,0 +1,34 @@
+services:
+  mssql:
+    image: helloworld65/vpic-mssql:latest
+    container_name: shoplog-vpic-db
+    ports:
+      - '${SQL_SERVER_PORT}:${SQL_SERVER_PORT}'
+    environment:
+      ACCEPT_EULA: Y
+      MSSQL_SA_PASSWORD: ${SQL_SERVER_PASSWORD}
+    healthcheck:
+      test:
+        [
+          'CMD',
+          'sqlcmd',
+          '-U',
+          '${SQL_SERVER_USERNAME}',
+          '-P',
+          '${SQL_SERVER_PASSWORD}',
+          '-Q',
+          'SELECT 1',
+        ]
+      interval: 10s
+      retries: 5
+
+  # redis:
+  #   image: redis:latest
+  #   restart: always
+  #   healthcheck:
+  #     test: ['CMD', 'redis-cli', '--raw', 'incr', 'ping']
+  #   ports:
+  #     - '${REDIS_PORT}:${REDIS_PORT}'
+  #   environment:
+  #     REDIS_PASSWORD: ${REDIS_PASSWORD}
+  #     ALLOW_EMPTY_PASSWORD: no
