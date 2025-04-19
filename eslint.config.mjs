@@ -22,6 +22,7 @@ export default defineConfig([
       '@typescript-eslint/no-unused-vars': ['warn', { argsIgnorePattern: '^_' }],
       '@typescript-eslint/no-non-null-assertion': 'error',
       '@typescript-eslint/explicit-function-return-type': 'error',
+      '@typescript-eslint/consistent-indexed-object-style': 'off',
       'no-console': 'warn',
     },
     ignores: ['node_modules', '.lintstagedrc.mjs'],

@@ -40,11 +40,8 @@ const dialect = new MssqlDialect({
   },
 });
 
-export class Db extends Kysely<DB> {
-  constructor() {
-    super({
-      dialect,
-      log: ['query', 'error'],
-    });
-  }
-}
+const db = new Kysely<DB>({ dialect, log: ['query', 'error'] });
+
+export const createDb = (): Kysely<DB> => {
+  return db;
+};
