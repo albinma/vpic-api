@@ -30,6 +30,39 @@ paths:
           $ref: '#/components/responses/422'
         '500':
           $ref: '#/components/responses/500'
+  /makes:
+    get:
+      summary: Get a list of supported vehicle makes
+      operationId: getMakes
+      parameters:
+        - name: year
+          in: query
+          description: The year of the vehicle
+          required: false
+          schema:
+            type: integer
+            format: int32
+      responses:
+        '200':
+          description: Vehicle makes found
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Lookup'
+        '400':
+          $ref: '#/components/responses/400'
+        '401':
+          $ref: '#/components/responses/401'
+        '403':
+          $ref: '#/components/responses/403'
+        '404':
+          $ref: '#/components/responses/404'
+        '422':
+          $ref: '#/components/responses/422'
+        '500':
+          $ref: '#/components/responses/500'
 components:
   responses:
     '400':
